@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<link rel="icon" href="icons/icon48.png">
+<title>Sloth Assist - templates</title>
+<style>
+  html[data-theme="dark"] {
+    color-scheme: dark;
+    --ink: #eef4fb;
+    --ink-soft: #a7b6c9;
+    --ink-faint: #7f8ea3;
+    --glass: rgba(255, 255, 255, .06);
+    --glass-hi: rgba(255, 255, 255, .11);
+    --glass-lo: rgba(10, 16, 24, .35);
+    --stroke: rgba(255, 255, 255, .14);
+    --stroke-hi: rgba(255, 255, 255, .26);
+    --sheen: rgba(255, 255, 255, .16);
+    --accent: #6fa8ff;
+    --accent-fill: rgba(90, 150, 255, .30);
+    --accent-line: rgba(120, 175, 255, .75);
+    --pos: #7fe0a8;
+    --pos-fill: rgba(60, 200, 130, .16);
+    --neg: #ff9f7a;
+    --neg-fill: rgba(255, 130, 90, .16);
+    --shadow: 0 8px 26px rgba(0, 0, 0, .40);
+    --page:
+      radial-gradient(820px 420px at 8% -12%, rgba(70, 125, 255, .34), transparent 62%),
+      radial-gradient(680px 420px at 108% 4%, rgba(175, 85, 255, .26), transparent 64%),
+      radial-gradient(760px 480px at 45% 118%, rgba(0, 195, 190, .20), transparent 62%),
+      #090d14;
+  }
+  html[data-theme="light"] {
+    color-scheme: light;
+    --ink: #10202f;
+    --ink-soft: #4a5c70;
+    --ink-faint: #6b7c90;
+    --glass: rgba(255, 255, 255, .58);
+    --glass-hi: rgba(255, 255, 255, .78);
+    --glass-lo: rgba(255, 255, 255, .40);
+    --stroke: rgba(255, 255, 255, .85);
+    --stroke-hi: rgba(120, 150, 190, .45);
+    --sheen: rgba(255, 255, 255, .95);
+    --accent: #1f5fb0;
+    --accent-fill: rgba(90, 150, 255, .26);
+    --accent-line: rgba(45, 110, 200, .70);
+    --pos: #14804a;
+    --pos-fill: rgba(40, 180, 110, .18);
+    --neg: #b1441a;
+    --neg-fill: rgba(230, 110, 60, .18);
+    --shadow: 0 8px 24px rgba(30, 60, 110, .16);
+    --page:
+      radial-gradient(820px 420px at 8% -12%, rgba(105, 160, 255, .55), transparent 62%),
+      radial-gradient(680px 420px at 108% 4%, rgba(190, 130, 255, .42), transparent 64%),
+      radial-gradient(760px 480px at 45% 118%, rgba(80, 220, 210, .38), transparent 62%),
+      #e9eef6;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 16px;
+    width: 440px;
+    font: 13px/1.45 -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--page);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  .glass {
+    background: var(--glass);
+    border: 1px solid var(--stroke);
+    border-radius: 13px;
+    box-shadow: var(--shadow), inset 0 1px 0 var(--sheen);
+    -webkit-backdrop-filter: blur(20px) saturate(165%);
+    backdrop-filter: blur(20px) saturate(165%);
+  }
+
+  .top { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 14px; }
+  h1 { display: flex; align-items: center; gap: 8px; margin: 0 0 3px; font-size: 16px; letter-spacing: -.01em; }
+  h1 .logo {
+    width: 26px; height: 26px; border-radius: 8px;
+    border: 1px solid var(--stroke); box-shadow: var(--shadow);
+  }
+  p.hint { margin: 0; font-size: 11.5px; color: var(--ink-soft); }
+  h2 {
+    margin: 18px 0 8px; font-size: 10.5px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .09em; color: var(--ink-faint);
+  }
+
+  section { padding: 12px; margin-bottom: 12px; }
+
+  .card { display: flex; align-items: center; gap: 9px; padding: 9px 10px; margin-bottom: 7px; }
+  .card .grow { flex: 1; min-width: 0; }
+  .card .name { font-weight: 600; letter-spacing: -.01em; }
+  .card .sub { font-size: 11px; color: var(--ink-soft); word-break: break-word; }
+  .card.editing { border-color: var(--accent-line); background: var(--accent-fill); }
+  .card .acts { display: flex; gap: 4px; flex-shrink: 0; }
+  .shortcut {
+    display: inline-block; margin-right: 6px; padding: 1px 5px;
+    font-size: 9.5px; font-weight: 700; letter-spacing: .04em;
+    color: var(--ink-soft); background: var(--glass-lo);
+    border: 1px solid var(--stroke); border-radius: 5px; vertical-align: 1px;
+  }
+
+  button {
+    font: inherit; color: var(--ink); cursor: pointer;
+    padding: 5px 10px; border-radius: 9px;
+    background: var(--glass-hi); border: 1px solid var(--stroke);
+    box-shadow: inset 0 1px 0 var(--sheen);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    backdrop-filter: blur(10px) saturate(150%);
+    transition: transform .08s ease, background .15s ease, border-color .15s ease;
+  }
+  button:hover { border-color: var(--stroke-hi); }
+  button:active { transform: translateY(1px); }
+  button.primary { background: var(--accent-fill); border-color: var(--accent-line); font-weight: 600; }
+  button.icon {
+    width: 26px; height: 26px; padding: 0; font-size: 12px; line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  button.icon:disabled { opacity: .28; cursor: default; }
+  button.danger { color: var(--neg); border-color: var(--stroke); }
+  button.danger:hover { background: var(--neg-fill); }
+  #restore { width: 100%; margin-top: 2px; font-size: 11.5px; }
+
+  label { display: block; margin-bottom: 9px; font-size: 11.5px; color: var(--ink-soft); }
+  input[type=text], input[type=number], select {
+    width: 100%; margin-top: 4px; padding: 7px 9px;
+    font: inherit; color: var(--ink);
+    background: var(--glass-lo); border: 1px solid var(--stroke);
+    border-radius: 9px;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+  input:focus, select:focus { outline: none; border-color: var(--accent-line); box-shadow: 0 0 0 3px var(--accent-fill); }
+  .grid { display: flex; gap: 9px; }
+  .grid > * { flex: 1; }
+  .row { display: flex; gap: 8px; align-items: center; margin-top: 12px; }
+  .msg { margin-top: 10px; font-size: 11.5px; min-height: 16px; color: var(--ink-soft); }
+  .msg.err { color: var(--neg); }
+  .msg.ok { color: var(--pos); }
+  .inline { display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--ink-soft); }
+  .inline input[type=checkbox] { margin: 0; accent-color: var(--accent); }
+  .inline input[type=number] { width: 62px; margin: 0; }
+
+  .worth {
+    display: flex; align-items: baseline; gap: 8px;
+    padding: 9px 11px; margin-bottom: 10px; border-radius: 10px;
+    background: var(--pos-fill); border: 1px solid var(--stroke);
+  }
+  .worth b { font-size: 17px; font-weight: 700; color: var(--pos); letter-spacing: -.02em; }
+  .worth span { font-size: 11.5px; color: var(--ink-soft); }
+
+  .seg { display: flex; gap: 7px; margin-top: 5px; }
+  .seg > button {
+    flex: 1; padding: 8px 6px; text-align: center; line-height: 1.3; font-size: 11px;
+    color: var(--ink-soft);
+  }
+  .seg > button .big { display: block; font-size: 13px; font-weight: 700; color: var(--ink); letter-spacing: -.01em; }
+  .seg > button.sel { background: var(--accent-fill); border-color: var(--accent-line); color: var(--ink); }
+  .custom-wrap { display: none; align-items: center; gap: 7px; margin-top: 9px; font-size: 11.5px; color: var(--ink-soft); }
+  .custom-wrap.on { display: flex; }
+  .custom-wrap input { width: 92px; margin: 0; text-align: right; }
+  .tip { margin: 8px 0 0; font-size: 11px; color: var(--ink-faint); }
+  .tip b { color: var(--ink-soft); font-weight: 600; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 5px; }
+  .chip {
+    display: flex; align-items: center; gap: 5px;
+    padding: 4px 8px; border-radius: 8px; font-size: 11.5px; font-weight: 600;
+    background: var(--glass-lo); border: 1px solid var(--stroke); color: var(--ink-soft);
+  }
+  .chip i { font-style: normal; font-size: 9.5px; font-weight: 700; opacity: .6; }
+  .chip.pos { background: var(--pos-fill); color: var(--pos); }
+  .chip.neg { background: var(--neg-fill); color: var(--neg); }
+
+  .site {
+    display: flex; align-items: center; gap: 9px;
+    padding: 8px 10px; margin-bottom: 7px;
+    background: var(--glass); border: 1px solid var(--stroke); border-radius: 11px;
+    box-shadow: inset 0 1px 0 var(--sheen);
+  }
+  .site .host { flex: 1; min-width: 0; font-weight: 600; word-break: break-all; }
+  .site .host small { display: block; font-weight: 400; font-size: 10.5px; color: var(--ink-faint); word-break: break-all; }
+  .site .tag {
+    flex-shrink: 0; padding: 2px 7px; border-radius: 6px;
+    font-size: 10px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase;
+    border: 1px solid var(--stroke);
+  }
+  .site .tag.on { color: var(--pos); background: var(--pos-fill); }
+  .site .tag.off { color: var(--ink-faint); background: var(--glass-lo); }
+  .site .tag.need { color: var(--neg); background: var(--neg-fill); }
+  .add-row { display: flex; gap: 8px; align-items: stretch; }
+  .add-row input { margin-top: 0; }
+  .add-row button { flex-shrink: 0; padding-left: 16px; padding-right: 16px; }
+
+  details { margin-top: 6px; }
+  summary { font-size: 11.5px; color: var(--ink-soft); cursor: pointer; padding: 3px 0; }
+  details > div { margin-top: 9px; }
+  code { font-size: 11px; padding: 1px 4px; border-radius: 4px; background: var(--glass-lo); }
+</style>
+</head>
+<body>
+  <div class="top">
+    <div>
+      <h1><img src="icons/icon48.png" alt="" class="logo">Sloth Assist</h1>
+      <p class="hint">Templates show up as buttons on the question edit page. Alt+1, Alt+2, … apply them.</p>
+    </div>
+    <button id="theme" class="icon" title="Switch between dark and light">☀</button>
+  </div>
+
+  <h2>Templates</h2>
+  <div id="list"></div>
+  <button id="restore" style="display:none">Restore built-in templates</button>
+
+  <h2 id="form-title">New template</h2>
+
+  <section class="glass">
+    <label>Name<input type="text" id="f-name" placeholder="4 correct / 8"></label>
+
+    <div class="grid">
+      <label>How many answers<input type="number" id="f-total" min="1" max="40" value="6"></label>
+      <label>How many are correct<input type="number" id="f-correct" min="0" max="40" value="3"></label>
+    </div>
+
+    <div class="worth"><b id="worth-val">33.33333%</b><span id="worth-text">for each correct answer</span></div>
+
+    <label style="margin-bottom:2px">Wrong answers</label>
+    <div class="seg" id="wrong-modes">
+      <button type="button" data-mode="none"><span class="big">No penalty</span>worth nothing</button>
+      <button type="button" data-mode="mirror"><span class="big" data-val>-33.33333%</span>same as a correct one</button>
+      <button type="button" data-mode="custom"><span class="big">Custom</span>your own value</button>
+    </div>
+    <div class="custom-wrap" id="custom-wrap">
+      <span>Each wrong answer</span>
+      <input type="number" id="f-custom" step="0.00001" value="-25">
+      <span>%</span>
+    </div>
+    <p class="tip" id="tip"></p>
+
+    <label style="margin-top:12px">This gives
+      <div class="chips" id="preview"></div>
+    </label>
+
+    <label>Students may
+      <select id="f-single">
+        <option value="1">pick one answer only</option>
+        <option value="0">pick several answers</option>
+        <option value="">leave the page as it is</option>
+      </select>
+    </label>
+
+    <details>
+      <summary>Fine-tune</summary>
+      <div>
+        <label>Grades in order, comma separated
+          <input type="text" id="f-grades" placeholder="33.33333%*3, -33.33333%*3">
+        </label>
+        <p class="hint" style="margin:-4px 0 9px"><code>none</code> = None, <code>*3</code> repeats a value. Slots past the last grade are set to None.</p>
+        <div class="inline">
+          <input type="checkbox" id="f-shuffle-on">
+          <label for="f-shuffle-on" style="margin:0">also set “Shuffle the choices”</label>
+          <select id="f-shuffle" style="width:auto"><option value="1">on</option><option value="0">off</option></select>
+        </div>
+      </div>
+    </details>
+
+    <div class="row">
+      <button class="primary" id="save">Save template</button>
+      <button id="cancel" style="display:none">Cancel edit</button>
+    </div>
+    <div class="msg" id="msg"></div>
+  </section>
+
+  <h2>Websites</h2>
+  <section class="glass">
+    <p class="hint" style="margin-bottom:9px">Sloth Assist runs only on the sites listed here. Add your own Moodle, or paste the address of a question page.</p>
+    <div id="sites"></div>
+    <div class="add-row">
+      <input type="text" id="site-input" placeholder="moodle.my-school.org">
+      <button id="site-add" class="primary">Add</button>
+    </div>
+    <div class="msg" id="site-msg"></div>
+  </section>
+
+  <h2>Options</h2>
+  <section class="glass">
+    <div class="inline">
+      <input type="checkbox" id="s-auto">
+      <label for="s-auto" style="margin:0">on page load, expand every question to</label>
+      <input type="number" id="s-auto-to" min="1" max="40" value="6">
+      <span>answers</span>
+    </div>
+  </section>
+
+  <script src="templates.js"></script>
+  <script src="manager.js"></script>
+</body>
+</html>
