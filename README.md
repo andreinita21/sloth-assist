@@ -147,6 +147,10 @@ trimmed for you. Chrome then asks whether to grant access to that site, because
 an extension may only touch sites you have approved. Accept, and the panel shows
 up there from the next page load.
 
+<div align="center">
+<img src="docs/screenshot-websites.png" width="440" alt="The Websites section of the Sloth Assist manager">
+</div>
+
 Each site in the list shows its state and what you can do with it:
 
 | Badge | Meaning |
