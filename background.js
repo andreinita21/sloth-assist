@@ -1,5 +1,5 @@
 var SCRIPT_ID = 'sloth-sites';
-var DEFAULT_SITES = [{ pattern: 'https://concurs.acadnet.eu/*', enabled: true }];
+var DEFAULT_SITES = [];
 
 function get(keys) {
   return new Promise(function (resolve) { chrome.storage.local.get(keys, resolve); });

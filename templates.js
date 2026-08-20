@@ -27,7 +27,7 @@ var AQH = (function () {
 
   var DEFAULT_SETTINGS = { autoExpand: false, autoExpandTo: 6, theme: 'dark' };
 
-  var DEFAULT_SITES = [{ pattern: 'https://concurs.acadnet.eu/*', enabled: true }];
+  var DEFAULT_SITES = [];
 
   function normalisePattern(raw) {
     var t = String(raw || '').trim();

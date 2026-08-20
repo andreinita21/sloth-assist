@@ -72,13 +72,19 @@ your extension list.
 **5. Pin it**
 
 Click the puzzle-piece icon in the toolbar, then the pin next to *Sloth Assist*,
-so the sloth stays visible. That icon opens the template manager.
+so the sloth stays visible. That icon opens the manager.
 
-**6. Use it**
+**6. Tell it where you work**
 
-Go to a question edit page on `concurs.acadnet.eu`, for example
-`https://concurs.acadnet.eu/question/edit.php?cat=...` → edit a multiple-choice
-question. The panel is waiting in the bottom-right corner.
+A fresh install runs nowhere at all - it has no idea which Moodle is yours. Open
+the manager, go to **Websites**, and add your site: type its address
+(`moodle.example.org`) or paste the address of any question page from it. Chrome
+asks whether to grant access; accept.
+
+**7. Use it**
+
+Open a multiple-choice question for editing on that site. The panel is waiting in
+the bottom-right corner.
 
 > **After you change any file** (or update the repo): press the ↻ button on the
 > Sloth Assist card in `chrome://extensions`, **and reload any question page you
@@ -137,13 +143,14 @@ the tip line says so.
 
 ## Which websites it runs on
 
-Sloth Assist does nothing at all until a site is on its list. Open the manager
-and look under **Websites**: `concurs.acadnet.eu` is there from the start, and
-you can add any other Moodle you work on.
+Sloth Assist ships with an empty list and does nothing anywhere until you fill
+it in. Open the manager, look under **Websites**, and add every Moodle you work
+on - there is no limit, and a school, a university and a contest platform can sit
+side by side.
 
-To add one, type its address - `moodle.my-school.org` - or simply paste the
-address of a question page you have open; everything after the domain is
-trimmed for you. Chrome then asks whether to grant access to that site, because
+To add one, type its address - `moodle.example.org` - or simply paste the address
+of a question page you have open; everything after the domain is trimmed for
+you. Chrome then asks whether to grant access to that site, because
 an extension may only touch sites you have approved. Accept, and the panel shows
 up there from the next page load.
 
@@ -161,12 +168,8 @@ Every site has its own switch:
 
 The ✕ button removes a site for good and hands its permission back to Chrome.
 
-Two useful details:
-
-* Removing `concurs.acadnet.eu` is allowed - if you do not use it, take it off
-  the list and Sloth Assist will leave that site alone.
-* A tab that is already open when you add a site keeps running without the
-  panel. Reload it once.
+A tab that was already open when you added its site keeps running without the
+panel - reload it once.
 
 ## Panel extras
 
@@ -208,7 +211,7 @@ without it.
 
 | File | Purpose |
 |---|---|
-| `manifest.json` | extension definition: permissions, icons, the one site granted up front |
+| `manifest.json` | extension definition: permissions and icons - no site access up front |
 | `background.js` | registers the panel on whichever sites you have approved |
 | `content.js` | the panel, reading the page, applying templates, the job that survives the reload |
 | `templates.js` | the template model, grade parsing, the list of grades Moodle accepts |
@@ -216,7 +219,8 @@ without it.
 | `panel.css` | the glass panel styling |
 | `icons/` | the sloth, at the sizes Chrome asks for |
 
-Permissions: `storage`, to keep your templates and site list, and `scripting`,
-to switch the panel on for the sites you approve. Access to any site other than
-`concurs.acadnet.eu` is optional and asked for one site at a time, when you add
-it. Nothing is sent anywhere - no account, no tracking, no network calls.
+Permissions: `storage`, to keep your templates and your site list, and
+`scripting`, to switch the panel on for the sites you approve. It asks for no
+website access up front - every site is granted individually, by you, when you
+add it, and giving the permission back is one ✕ away. Nothing is sent anywhere:
+no account, no tracking, no network calls.

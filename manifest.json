@@ -1,12 +1,18 @@
 {
   "manifest_version": 3,
   "name": "Sloth Assist",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Let the sloth do the clicking: grade templates for Moodle multiple-choice questions, blank answers added automatically.",
-  "permissions": ["storage", "scripting"],
-  "host_permissions": ["https://concurs.acadnet.eu/*"],
-  "optional_host_permissions": ["*://*/*"],
-  "background": { "service_worker": "background.js" },
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
@@ -25,8 +31,12 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["icons/*.png"],
-      "matches": ["<all_urls>"]
+      "resources": [
+        "icons/*.png"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ]
 }
