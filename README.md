@@ -4,7 +4,7 @@
 
 # Sloth Assist
 
-**Because clicking 6 grade dropdowns by hand is "work hard" instead of "work smart", and we don't do that here :))**
+**Because clicking 6 grade dropdowns by hand is "work hard" instead of "work smart" and we don't do that here :))**
 
 A Chrome extension for the Moodle question bank is the solution for the momment.
 It adds the blank answers for you and fills every grade dropdown from a template,
@@ -151,15 +151,15 @@ up there from the next page load.
 <img src="docs/screenshot-websites.png" width="440" alt="The Websites section of the Sloth Assist manager">
 </div>
 
-Each site in the list shows its state and what you can do with it:
+Every site has its own switch:
 
-| Badge | Meaning |
+| | Meaning |
 |---|---|
-| **active** | granted and running there |
-| **off** | kept in the list but not running - the ● button switches it back on |
-| **no access** | Chrome's permission is missing (you declined it, or removed it later in Chrome's own settings) - press **Grant** to ask again |
+| switch **on**, green | Sloth Assist is running there |
+| switch **off**, grey | the site stays on the list but nothing runs there - flick it back any time |
+| **no access** + **Grant** | Chrome's permission is missing, because you declined it or removed it later in Chrome's own settings; press **Grant** to ask again |
 
-The ✕ button removes a site and hands its permission back to Chrome.
+The ✕ button removes a site for good and hands its permission back to Chrome.
 
 Two useful details:
 

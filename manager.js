@@ -424,21 +424,13 @@
     host.appendChild(small);
     row.appendChild(host);
 
-    var tag = document.createElement('span');
     if (!granted) {
+      var tag = document.createElement('span');
       tag.className = 'tag need';
       tag.textContent = 'no access';
       tag.title = 'Chrome has not granted access to this site yet';
-    } else if (site.enabled === false) {
-      tag.className = 'tag off';
-      tag.textContent = 'off';
-    } else {
-      tag.className = 'tag on';
-      tag.textContent = 'active';
-    }
-    row.appendChild(tag);
+      row.appendChild(tag);
 
-    if (!granted) {
       var grant = document.createElement('button');
       grant.textContent = 'Grant';
       grant.title = 'Ask Chrome for access to this site';
@@ -450,12 +442,17 @@
       });
       row.appendChild(grant);
     } else {
+      var on = site.enabled !== false;
       var toggle = document.createElement('button');
-      toggle.className = 'icon';
-      toggle.textContent = site.enabled === false ? '\u25cb' : '\u25cf';
-      toggle.title = site.enabled === false ? 'Turn it back on' : 'Turn it off without removing it';
+      toggle.className = 'switch';
+      toggle.setAttribute('role', 'switch');
+      toggle.setAttribute('aria-checked', on ? 'true' : 'false');
+      toggle.setAttribute('aria-label', AQH.patternLabel(site.pattern));
+      toggle.title = on ? 'Running here - click to switch it off' : 'Switched off - click to run here again';
+      toggle.appendChild(document.createElement('span')).className = 'knob';
       toggle.addEventListener('click', function () {
-        site.enabled = site.enabled === false;
+        site.enabled = !on;
+        toggle.setAttribute('aria-checked', site.enabled ? 'true' : 'false');
         saveSites(AQH.patternLabel(site.pattern) + (site.enabled ? ' is on again.' : ' is off.'));
       });
       row.appendChild(toggle);

@@ -192,6 +192,29 @@
   .site .tag.on { color: var(--pos); background: var(--pos-fill); }
   .site .tag.off { color: var(--ink-faint); background: var(--glass-lo); }
   .site .tag.need { color: var(--neg); background: var(--neg-fill); }
+  .switch {
+    position: relative; flex-shrink: 0;
+    width: 44px; height: 25px; padding: 0;
+    border-radius: 999px;
+    background: var(--glass-lo);
+    border: 1px solid var(--stroke);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, .22);
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .switch:hover { border-color: var(--stroke-hi); }
+  .switch .knob {
+    position: absolute; top: 2px; left: 2px;
+    width: 19px; height: 19px;
+    border-radius: 50%;
+    background: var(--ink-faint);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, .35), inset 0 1px 0 var(--sheen);
+    transition: transform .2s cubic-bezier(.34, 1.56, .64, 1), background .2s ease;
+  }
+  .switch[aria-checked="true"] { background: var(--pos-fill); border-color: var(--pos); }
+  .switch[aria-checked="true"] .knob { transform: translateX(19px); background: var(--pos); }
+  .switch:active .knob { transform: scale(.92) translateX(0); }
+  .switch[aria-checked="true"]:active .knob { transform: scale(.92) translateX(19px); }
+
   .add-row { display: flex; gap: 8px; align-items: stretch; }
   .add-row input { margin-top: 0; }
   .add-row button { flex-shrink: 0; padding-left: 16px; padding-right: 16px; }
